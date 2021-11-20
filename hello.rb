@@ -85,27 +85,50 @@
 # --------------------------------------------------
 
 # 配列
-colors = ["red","blue","yellow"]
+# colors = ["red","blue","yellow"]
 
-p colors[0] #括弧内の数字を添字という
-p colors[-1]
-p colors[0..2] #0から2まで
-p colors[0...2] #0から2の直前まで
-p colors[5] #nill
+# p colors[0] #括弧内の数字を添字という
+# p colors[-1]
+# p colors[0..2] #0から2まで
+# p colors[0...2] #0から2の直前まで
+# p colors[5] #nill
 
-colors[0] = "pink"
-p colors[0..2]
-colors[1..2] = ["white","black"]
-colors.push("gold")
-colors << "silver"
-p colors
+# colors[0] = "pink"
+# p colors[0..2]
+# colors[1..2] = ["white","black"]
+# colors.push("gold")
+# colors << "silver"
+# p colors
 
-p colors.size
-p colors.sort!
+# p colors.size
+# p colors.sort!
 
-p colors[0..3]
+# p colors[0..3]
 
 # --------------------------------------------------
 
 #ハッシュ
+# - key / value
+
+#taguchi 200
+#fkoji 400
+
+scores = {"taguchi" => 200, "fkoji" => 400 }
+# scores = {:taguchi => 200, :fkoji => 400 }
+# scores = {taguchi: 200, fkoji: 400 }
+
+# # p scores[:taguchi]
+# scores[:fkoji] = 600
+
+# # p scores[:fkoji]
+
+# p scores.size
+# p scores.keys
+# p scores.values
+# p scores.has_key?(:taguchi)
+
+# p scores.methods
+# p scores.clear
+
+# --------------------------------------------------
 
