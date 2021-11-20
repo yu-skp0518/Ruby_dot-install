@@ -48,6 +48,7 @@
 
 # name = "taguchi"
 # puts "hello #{name}"
+# puts 'hello #{name}'
 
 # --------------------------------------------------
 
@@ -107,7 +108,7 @@
 
 # --------------------------------------------------
 
-#ハッシュ
+# ハッシュ
 # - key / value
 
 #taguchi 200
@@ -132,15 +133,57 @@
 
 # --------------------------------------------------
 
-#変換
+# 変換
 
-x = 50
-y = "3"
+# x = 50
+# y = "3"
 
-p x + y.to_i
-p x + y.to_f
-p x.to_s + y
+# p x + y.to_i
+# p x + y.to_f
+# p x.to_s + y
 
-scores = {taguchi: 200, fkoji: 400}
+# scores = {taguchi: 200, fkoji: 400}
+# p scores.to_a.to_h
 
-p scores.to_a.to_h
+# --------------------------------------------------
+
+# %
+
+# puts "he\"llo"
+# puts 'he\'llo'
+
+# puts %Q(he"llo)
+# puts %(he"llo)
+# puts %q(he'llo)
+
+# p ["red", "blue"]
+# p ['red', 'blue']
+
+# p %W(red blue)
+# p %w(red blue)
+
+# --------------------------------------------------
+
+# 書式付きでの値の表示
+
+# "文字列" % 値
+# %s 文字列
+# %d 整数
+# %f 浮動小数点数
+
+# p "name: %s" % "taguchi"
+# p "name: %10s" % "taguchi" #10桁分の幅を確保
+# p "name: %-10s" % "taguchi" #10桁分の幅を確保して左寄せ
+
+# p "id: %05d, rate %10.2f" % [355, 3.284] #idは５桁にしたいが、満たない場合は0で埋める。rateは小数点の前は10桁分確保で小数点以下は２桁で指定。
+
+ # printf
+ # sprintf
+
+# printf("name: %10s\n", "taguchi") #\nは改行の意味(39行目参照)
+# printf("id: %05d, rate %10.2f\n", 355, 3.284)
+
+# p sprintf("name: %10s\n", "taguchi") #文字列で返してほしい時
+# p sprintf("id: %05d, rate %10.2f\n", 355, 3.284) #文字列で返してほしい時
+
+# --------------------------------------------------
