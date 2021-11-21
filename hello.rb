@@ -226,7 +226,7 @@
 
 ## while
 
-i = 0
+# i = 0
 
 # while i < 10 do
 #  puts "#{i}回目のhello"
@@ -240,4 +240,4 @@ i = 0
 #  puts "#{i}回目のhello！"
 # end
 
-10.times { |i| puts "#{i}回目のhello！" } #doからendが一行しかないような時はこのように一行にまとめた書き方もできる
+# 10.times { |i| puts "#{i}回目のhello！" } #doからendが一行しかないような時はこのように一行にまとめた書き方もできる
