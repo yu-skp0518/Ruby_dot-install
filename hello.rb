@@ -193,14 +193,31 @@
 # &&(AND)、 ||(OR)、 !(NOT)
 
 
-score = gets.to_i
+# score = gets.to_i
 
-# if score > 80 then
-#  puts "great!"
-# elsif score > 60 then
-#   puts "good!"
-# else
-#   puts "so so..."
-# end
+# # if score > 80 then
+# #  puts "great!"
+# # elsif score > 60 then
+# #   puts "good!"
+# # else
+# #   puts "so so..."
+# # end
 
-puts "great!" if score > 80 #こういう書き方もある
+# puts "great!" if score > 80 #こういう書き方もある
+
+# --------------------------------------------------
+
+# case
+
+signal = gets.chomp
+
+case signal
+when "red"
+ puts "stop!"
+when "green","blue"
+ puts "go!"
+when "yellow"
+ puts "caution!"
+else
+ puts "wrong signal"
+end
