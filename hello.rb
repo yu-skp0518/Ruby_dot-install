@@ -187,3 +187,20 @@
 # p sprintf("id: %05d, rate %10.2f\n", 355, 3.284) #文字列で返してほしい時
 
 # --------------------------------------------------
+
+# if
+# >、 <、 >=〇〇以上、 <=〇〇以下、 ==〇〇と等しい、 !=〇〇と等しくない
+# &&(AND)、 ||(OR)、 !(NOT)
+
+
+score = gets.to_i
+
+# if score > 80 then
+#  puts "great!"
+# elsif score > 60 then
+#   puts "good!"
+# else
+#   puts "so so..."
+# end
+
+puts "great!" if score > 80 #こういう書き方もある
