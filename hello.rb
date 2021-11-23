@@ -223,6 +223,8 @@
 # end
 
 # --------------------------------------------------
+# 繰り返し処理
+# --------------------------------------------------
 
 ## while
 
@@ -244,16 +246,59 @@
 
 # --------------------------------------------------
 
-# for
+## for
 
-for i in 15...20 do
- p i
-end
+# for i in 15..20 do
+#  p i
+# end
 
-for color in ["red","blue"] do
- p color
-end
+# for color in ["red","blue","yellow","black",] do #配列の場合
+#  p color
+# end
 
-for name, score in [taguchi: 200, fkoji: 400] do
- puts "#{name}: #{score}"
-end
+# for name, score in [taguchi: 200, fkoji: 400] do #ハッシュの場合
+#  puts "#{name}: #{score}"
+# end
+
+
+## each
+
+# (15..20).each do |i|
+#  p i
+# end
+
+# ["red","blue","yellow"].each do |color|
+#  puts color
+# end
+
+# {taguchi: 200, fkoji: 400}.each do |name, score|
+#  puts "#{name}: #{score}"
+# end
+
+# doとendではなく{}で囲む書き方もできる
+# {taguchi: 200, fkoji: 400}.each { |name, score| puts "#{name}: #{score}" }
+
+# --------------------------------------------------
+
+## loop
+
+# この記述だと無限に続いてしまうので止めたかったらターミナルでCtrl+C
+# i = 0
+# loop do
+#  p i
+#  i +=1
+# end
+
+
+## break 処理を中断させる
+## next　処理をスキップさせる
+
+# 10.times do |i|
+#  if i == 7 then #7の時に処理を中断
+#   break
+#  end
+#  p i
+# end
+
+# --------------------------------------------------
+
