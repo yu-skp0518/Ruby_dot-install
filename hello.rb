@@ -302,3 +302,47 @@
 
 # --------------------------------------------------
 
+## メソッド
+
+# def sayhi(name = "tom") #引数 ※()内で="◯◯"でデフォルト値を指定することができる
+ # score = 80 #メソッド内で定義された変数には外からはアクセスできない
+ # puts "hi! #{name}"
+ # return "hi! #{name}" #メソッドに値を返してほしい時。また、returnは省略できるが、記載があった方がわかりやすい
+# end
+
+#sayhi("taguchi")
+# sayhi "taguchi" #意味が曖昧にならない場合はカッコは省略できる
+#sayhi #デフォルト値で引数tomが出力される
+
+# p sayhi
+# p score
+
+# --------------------------------------------------
+
+## クラス
+
+# class User
+
+#  def initialize(name) #initializeはnewが呼び出された時に呼ばれる特殊なメソッド。引数にnewメソッドの引数("tom")を持っている
+#   @name = name #インスタンス変数にinitialize(name)に格納されている("tom")を代入する。またインスタンス変数はメソッド外でも使うことができる
+#  end
+
+#  def sayhi
+#   puts "Hi! i am #{@name}"
+#  end
+
+#  def sayhello
+#   puts "Hello! i am #{@name}"
+#  end
+
+# end
+
+# tom = User.new("tom") #名前をわたして保持させる↑↑↑
+# tom.sayhi
+
+# bob = User.new("bob") #名前をわたして保持させる↑↑↑
+# bob.sayhi
+
+# bob.sayhello
+
+# --------------------------------------------------
