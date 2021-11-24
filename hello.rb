@@ -321,28 +321,36 @@
 
 ## クラス
 
-# class User
+class User
 
-#  def initialize(name) #initializeはnewが呼び出された時に呼ばれる特殊なメソッド。引数にnewメソッドの引数("tom")を持っている
-#   @name = name #インスタンス変数にinitialize(name)に格納されている("tom")を代入する。またインスタンス変数はメソッド外でも使うことができる
-#  end
+ attr_accessor :name
+ attr_reader :name #getterのみ定義したい場合に使う
+ # setter(値を設定する): name=(value)
+ # getter(値を取得するのみ): name
+ # 2つ合わせてアクセサと呼ぶ
 
-#  def sayhi
-#   puts "Hi! i am #{@name}"
-#  end
+ def initialize(name) #initializeはnewが呼び出された時に呼ばれる特殊なメソッド。引数にnewメソッドの引数("tom")を持っている
+  @name = name #インスタンス変数にinitialize(name)に格納されている("tom")を代入する。またインスタンス変数はメソッド外でも使うことができる
+ end
 
-#  def sayhello
-#   puts "Hello! i am #{@name}"
-#  end
+ def sayhi
+  # self　インスタンス変数自身を呼び出すことができる。今回はsayhiを受け取っているtomとbob
+  # self.name -> @name
+  puts "Hi! i am #{@name}"
+  puts "Hi! i am #{self.name}"
+  puts "Hi! i am #{name}" #selfは意味が曖昧にならない場合は省略できる
+ end
 
-# end
+end
 
-# tom = User.new("tom") #名前をわたして保持させる↑↑↑
-# tom.sayhi
+tom = User.new("tom") #名前をわたして保持させる↑↑↑
+tom.sayhi #メソッドを受け取っているオブジェクトをレシーバーという。つまりここではtomはレシーバー
 
-# bob = User.new("bob") #名前をわたして保持させる↑↑↑
-# bob.sayhi
+bob = User.new("bob") #名前をわたして保持させる↑↑↑
+bob.sayhi #bobはレシーバー
 
-# bob.sayhello
+tom.name = "tom Jr." #アクセサがないと外部からはインスタンス変数の書き換えはできない
+p tom.name
+
 
 # --------------------------------------------------
