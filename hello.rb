@@ -1,30 +1,34 @@
 ## 変数
+# - 英小文字もしくは_で始める
 
 # msg = "hello world"
 # puts msg
 
-# msg = "hello world again".reverse
+# msg = "hello world again".reverse #reverseメソッドで逆方向から出力できる(ここではniaga dlrow ollehと出力される)
 # puts msg
 
 # --------------------------------------------------
 
-## 定数
-# 大文字
+# 定数
+# 大文字のみが好ましい
 
-# VERSION = 1.1.floor
+# VERSION = 1.1.floor #floorメソッドで小数点以下を切り捨てできる
+# puts VERSION
+
+# VERSION = 1.2 #一度定義した定数を書き換えると実行はできるが警告が出る。
 # puts VERSION
 
 # --------------------------------------------------
 
-## 数値
+## 数値  ###要復習！！！！！
 
-# p 4.8.class
-# p 4.8.methods
+# p 4.8.class #4.8が何のクラスなのか出力できる
+# p 4.8.methods #4.8に対して使用できるメソッドの一覧を出力できる
 
-# p 10 + 3
-# p 10 * 3
-# p 2.4 * 3
-# p 10 / 2
+# p 10 + 3 #足す
+# p 10 * 3 #かける
+# p 2.4 * 3 #かける
+# p 10 / 2 #割る
 # p 10 % 3
 # p 10.0 / 3
 # p Rational(2,5) + Rational(3,4)
@@ -149,8 +153,8 @@
 
 ## %
 
-# puts "he\"llo"
-# puts 'he\'llo'
+# puts "he\"llo" #ダブルクォーテーションの場合
+# puts 'he\'llo' #シングルクォーテーションの場合
 
 # puts %Q(he"llo)
 # puts %(he"llo)
@@ -350,8 +354,47 @@
 # bob = User.new("bob") #名前をわたして保持させる↑↑↑
 # bob.sayhi #bobはレシーバー
 
-# tom.name = "tom Jr." #アクセ サがないと外部からはインスタンス変数の書き換えはできない
+# tom.name = "tom Jr." #アクセサがないと外部からはインスタンス変数の書き換えはできない
 # p tom.name
 
+
+# --------------------------------------------------
+
+## クラス
+## - クラスメソッド
+## - クラス変数 (ここのインスタンスではなく、クラス内で共通の値を保持することができる。ここではcount)
+## - 定数 (全て大文字が好ましい)
+
+# class User
+
+#  @@count = 0 #クラス変数
+
+#  VERSION = 1.1
+
+#  def initialize(name)
+#   @@count += 1 #インスタンスが新たに作られるたびに1足す
+#   @name = name
+#  end
+
+#  def sayhi
+#   puts "Hi! i am #{@name}"
+#  end
+
+#  def self.info #クラスメソッドを定義。メソッド内でクラス変数(@@count)と定数(VERSION)を使用
+#   puts "#{VERSION}: User Class, #{@@count} instances."
+#  end
+
+#  # p VERSION #クラス内で定数を使用する場合はクラス名は不要(ここではUser.)
+
+# end
+
+# #インスタンス達(3件)
+# tom = User.new(tom)
+# bob = User.new(bob)
+# steve = User.new(steve)
+
+# User.info #クラスメソッド
+
+# p User::VERSION #定数をクラスの外で使用する際には::が必要
 
 # --------------------------------------------------
