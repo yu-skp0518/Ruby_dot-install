@@ -554,29 +554,29 @@
 
 # --------------------------------------------------
 
-#例外
-# 以下の式でxに0を代入した時、ZeroDivisionErrorがでる
-# そういった例外をエラーを出すのではなく、特定のメッセージを出すように促す
+# #例外
+# # 以下の式でxに0を代入した時、ZeroDivisionErrorがでる
+# # そういった例外をエラーを出すのではなく、特定のメッセージを出すように促す
 
-#また、以下のように自分で例外クラスを作ることもできる
+# #また、以下のように自分で例外クラスを作ることもできる
 
-class MyError < StandardError; end #今回は中身はいらないので一行で記述(StandardErrorはRubyの標準的な例外クラス)
+# class MyError < StandardError; end #今回は中身はいらないので一行で記述(StandardErrorはRubyの標準的な例外クラス)
 
-x = gets.to_i
+# x = gets.to_i
 
- begin #例外が発生しそうな処理をbeginとendで囲む
-  if x == 3
-   raise MyError #raiseでMyErrorを呼び出している
-  end
+#  begin #例外が発生しそうな処理をbeginとendで囲む
+#   if x == 3
+#    raise MyError #raiseでMyErrorを呼び出している
+#   end
 
-  p 100 / x
+#   p 100 / x
 
-  rescue MyError #自身が指定した特定の状況に対してMyErrorを呼び出す(今回はx == 3の場合)
-   puts "not 3!!!"
-  rescue => ex #例外が起きた時の処理を記述。発生した際にはexというオブジェクトに例外の内容を格納
-   p ex.message #exに格納された例外の内容をmessageメソッドで表示
-   p ex.class #exに格納された例外の内容のクラスを表示
-   puts "stopped!"
-  ensure #例外だろうが例外じゃなかろうが処理させたいことを記述
-   puts "-- END --"
- end
+#   rescue MyError #自身が指定した特定の状況に対してMyErrorを呼び出す(今回はx == 3の場合)
+#    puts "not 3!!!"
+#   rescue => ex #例外が起きた時の処理を記述。発生した際にはexというオブジェクトに例外の内容を格納
+#    p ex.message #exに格納された例外の内容をmessageメソッドで表示
+#    p ex.class #exに格納された例外の内容のクラスを表示
+#    puts "stopped!"
+#   ensure #例外だろうが例外じゃなかろうが処理させたいことを記述
+#    puts "-- END --"
+#  end
