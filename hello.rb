@@ -489,7 +489,7 @@
 
 # --------------------------------------------------
 
-## module
+## module①
 # モジュールもクラスのようにメソッドや定数をまとめることができるが、
 # インスタンスを作ったり、継承させたりはできないという違いがある。
 
@@ -497,31 +497,59 @@
 
 # - 名前空間
 
-def movie_encode
-end
+# ↓このように作ると他の人の記述に干渉しないか心配になる
+# --------------------
+# def movie_encode
+# end
 
-def movie_export
-end
+# def movie_export
+# end
+# --------------------
 
-module Movie
+# module Movie #Movieという名前空間を作る
 
- VERSION = 1.1
+#  VERSION = 1.1 #定数
 
- def self.encode
-  puts "encoding..."
- end
+#  def self.encode
+#   puts "encoding..."
+#  end
 
- def self.export
-  puts "exporting..."
- end
+#  def self.export
+#   puts "exporting..."
+#  end
 
-end
+# end
 
+# Movie.encode
+# Movie.export
 
-Movie.encode
-Movie.export
-
-p Movie::VERSION
+# p Movie::VERSION #定数をクラス外で使用するため::が必要
 
 # --------------------------------------------------
 
+## module②
+## - ミックスイン
+## PlayerとMonsterの関係は継承させるわけでもないが、どちらのクラスにもデバッグに関する記述をするのは面倒
+## なのでデバッグの機能のみクラスの外側に作って機能だけ埋め込む。はめ込むことをミックスインという
+
+module Debug
+
+ def info #module①のようにメソッド名にselfをつけなければインスタンスメソッドとしてmoduleの外でも使用することができる。
+  puts "#{self.class} debug info..."
+ end
+
+end
+
+class Player
+ include Debug #debugモジュールをミックスインさせている
+end
+
+class Monster
+ include Debug #debugモジュールをミックスインさせている
+end
+
+
+Player.new.info
+Monster.new.info
+
+# --------------------------------------------------
