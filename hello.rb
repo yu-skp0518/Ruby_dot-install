@@ -532,24 +532,51 @@
 ## PlayerとMonsterの関係は継承させるわけでもないが、どちらのクラスにもデバッグに関する記述をするのは面倒
 ## なのでデバッグの機能のみクラスの外側に作って機能だけ埋め込む。はめ込むことをミックスインという
 
-module Debug
+# module Debug
 
- def info #module①のようにメソッド名にselfをつけなければインスタンスメソッドとしてmoduleの外でも使用することができる。
-  puts "#{self.class} debug info..."
- end
+#  def info #module①のようにメソッド名にselfをつけなければインスタンスメソッドとしてmoduleの外でも使用することができる。
+#   puts "#{self.class} debug info..."
+#  end
 
-end
+# end
 
-class Player
- include Debug #debugモジュールをミックスインさせている
-end
+# class Player
+#  include Debug #debugモジュールをミックスインさせている
+# end
 
-class Monster
- include Debug #debugモジュールをミックスインさせている
-end
+# class Monster
+#  include Debug #debugモジュールをミックスインさせている
+# end
 
 
-Player.new.info
-Monster.new.info
+# Player.new.info
+# Monster.new.info
 
 # --------------------------------------------------
+
+#例外
+# 以下の式でxに0を代入した時、ZeroDivisionErrorがでる
+# そういった例外をエラーを出すのではなく、特定のメッセージを出すように促す
+
+#また、以下のように自分で例外クラスを作ることもできる
+
+class MyError < StandardError; end #今回は中身はいらないので一行で記述(StandardErrorはRubyの標準的な例外クラス)
+
+x = gets.to_i
+
+ begin #例外が発生しそうな処理をbeginとendで囲む
+  if x == 3
+   raise MyError #raiseでMyErrorを呼び出している
+  end
+
+  p 100 / x
+
+  rescue MyError #自身が指定した特定の状況に対してMyErrorを呼び出す(今回はx == 3の場合)
+   puts "not 3!!!"
+  rescue => ex #例外が起きた時の処理を記述。発生した際にはexというオブジェクトに例外の内容を格納
+   p ex.message #exに格納された例外の内容をmessageメソッドで表示
+   p ex.class #exに格納された例外の内容のクラスを表示
+   puts "stopped!"
+  ensure #例外だろうが例外じゃなかろうが処理させたいことを記述
+   puts "-- END --"
+ end
