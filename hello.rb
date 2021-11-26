@@ -398,3 +398,130 @@
 # p User::VERSION #定数をクラスの外で使用する際には::が必要
 
 # --------------------------------------------------
+
+## クラス
+## クラスの継承
+
+# - User: 親クラス、Super Class
+# - AdminUser: 子クラス、Sub Class
+
+
+#親クラス
+# class User
+
+#  def initialize(name)
+#   @name = name
+#  end
+
+#  def sayhi
+#   puts "Hi! i am #{@name}"
+#  end
+
+# end
+
+
+# #子クラス
+# class AdminUser < User #継承( < )
+
+#  def sayhello
+#   puts "Hello from #{@name}"
+#  end
+
+#  #メソッドのオーバーライド
+#  #親クラスのメソッドの書き換え
+#  def sayhi #(Userクラス内にも存在するメソッド)
+#   puts "Hi! from admin!"
+#  end
+
+# end
+
+# tom = AdminUser.new("tom")
+
+# tom.sayhi
+# tom.sayhello
+
+# --------------------------------------------------
+
+# ## クラス
+# ## アクセス権
+# # - public: (デフォルトの状態)。ただしInitializeメソッドとクラスの外に書いたメソッドに関しては自動的にprivateになる
+# # - protected
+# # - private: レシーバーを指定できない(Userのインスタンスから呼び出すことはできない)
+#          #-> つまりクラス内なら利用できる。
+
+
+# class User
+
+#  def sayhi
+#   puts "Hi!"
+#   sayPrivate #要は省略されているだけでself.sayPrivateなのだがprivate内のメソッドはレシーバーを指定できないので記述する場合はsayPrivateのみ
+#   #self.sayPrivate #とはできない
+#  end
+
+#  private
+
+#   def sayPrivate
+#    puts "private"
+#   end
+
+# end
+
+# class AdminUser < User
+
+#   # def sayHello
+#   #   puts "hello!"
+#   #   sayPrivate
+#   # end
+
+#   def sayPrivate
+#     puts "private from Admin"
+#   end
+
+# end
+
+#  # User.new.sayPrivate #とはできない
+
+#  # User.new.sayhi
+
+#  # AdminUser.new.sayHello
+#  AdminUser.new.sayPrivate #親クラスではprivate内で記述されていたメソッドでも継承した子クラス内では呼び出すことができるし、
+#                           #オーバーライドすることもできる
+
+# --------------------------------------------------
+
+## module
+# モジュールもクラスのようにメソッドや定数をまとめることができるが、
+# インスタンスを作ったり、継承させたりはできないという違いがある。
+
+# - 主に関連するメソッドや定数などをまとめてグループ化したい時に利用する。
+
+# - 名前空間
+
+def movie_encode
+end
+
+def movie_export
+end
+
+module Movie
+
+ VERSION = 1.1
+
+ def self.encode
+  puts "encoding..."
+ end
+
+ def self.export
+  puts "exporting..."
+ end
+
+end
+
+
+Movie.encode
+Movie.export
+
+p Movie::VERSION
+
+# --------------------------------------------------
+
